@@ -1,4 +1,4 @@
-// model-b/app.js - Lógica Interactiva y Temas para Modelo de Paneles Deslizantes
+// model-b/app.js - Lógica Interactiva y Temas (Modelo de Paneles Deslizantes Rediseñado)
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. PRELOADER Y CARGA INICIAL ---
@@ -22,13 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const mobileThemeToggleBtn = document.getElementById('mobileThemeToggleBtn');
   const body = document.body;
-  const sidebarLogo = document.getElementById('sidebarLogo');
-  const mobileLogo = document.getElementById('mobileLogo');
+  const headerLogo = document.getElementById('headerLogo');
 
   function updateLogosForTheme(isLight) {
-    const logoSrc = isLight ? '../assets/logo-dark.svg' : '../assets/logo-light.svg';
-    if (sidebarLogo) sidebarLogo.src = logoSrc;
-    if (mobileLogo) mobileLogo.src = logoSrc;
+    if (headerLogo) {
+      headerLogo.src = isLight ? '../assets/logo-dark.png' : '../assets/logo-light.png';
+    }
   }
 
   function updateToggleIcons(isLight) {
@@ -78,10 +77,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- 3. GESTIÓN DE NAVEGACIÓN ENTRE PANELES ---
+  // --- 3. MENÚ MÓVIL Y OVERLAY ---
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-overlay .nav-btn');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileOverlay.classList.toggle('open');
+      document.body.style.overflow = mobileOverlay.classList.contains('open') ? 'hidden' : 'auto';
+    });
+  }
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) menuToggle.classList.remove('active');
+      mobileOverlay.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+
+  // --- 4. GESTIÓN DE NAVEGACIÓN ENTRE PANELES ---
   const panels = document.querySelectorAll('.panel-section');
-  const sidebarButtons = document.querySelectorAll('.sidebar-nav-btn');
-  const mobileButtons = document.querySelectorAll('.mobile-nav-btn');
+  const desktopNavBtns = document.querySelectorAll('.desktop-nav .nav-btn');
+  const verticalPagerDots = document.querySelectorAll('.vertical-pager .pager-dot');
+  const mobileNavBtns = document.querySelectorAll('.mobile-bottom-nav .mobile-nav-btn');
   const allNavTriggers = document.querySelectorAll('[data-target]');
   
   let currentPanelIndex = 0;
@@ -125,16 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       isTransitioning = false;
-    }, 600);
+    }, 800); // 800ms match with CSS panel transition duration
   }
 
   function updateNavButtons(activeIndex) {
-    sidebarButtons.forEach(btn => {
+    // Desktop Nav Header Links
+    desktopNavBtns.forEach(btn => {
       const target = parseInt(btn.getAttribute('data-target'));
       btn.classList.toggle('active', target === activeIndex);
     });
 
-    mobileButtons.forEach(btn => {
+    // Vertical Pager Dots
+    verticalPagerDots.forEach(dot => {
+      const target = parseInt(dot.getAttribute('data-target'));
+      dot.classList.toggle('active', target === activeIndex);
+    });
+
+    // Mobile Bottom Nav
+    mobileNavBtns.forEach(btn => {
       const target = parseInt(btn.getAttribute('data-target'));
       btn.classList.toggle('active', target === activeIndex);
     });
@@ -149,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 4. CONTADORES DE ESTADÍSTICAS ---
+  // --- 5. CONTADORES DE ESTADÍSTICAS ---
   function startCounterAnimation() {
     const counterElements = document.querySelectorAll('.metric-num');
     
@@ -179,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 500);
 
 
-  // --- 5. ACORDEÓN DE SERVICIOS ---
+  // --- 6. ACORDEÓN DE SERVICIOS ---
   const accordionItems = document.querySelectorAll('.accordion-item');
 
   accordionItems.forEach(item => {
@@ -199,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 6. SOPORTE DE SWIPE TÁCTIL HORIZONTAL ---
+  // --- 7. SOPORTE DE SWIPE TÁCTIL HORIZONTAL ---
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
@@ -232,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- 7. VALIDACIÓN DEL FORMULARIO (GLASSMOPHIC) ---
+  // --- 8. VALIDACIÓN DEL FORMULARIO DE CONTACTO ---
   const pForm = document.getElementById('panelContactForm');
   const pSuccess = document.getElementById('pSuccess');
   const pError = document.getElementById('pError');

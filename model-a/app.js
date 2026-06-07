@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLogoForTheme(isDark) {
     if (headerLogo) {
-      headerLogo.src = isDark ? '../assets/logo-light.svg' : '../assets/logo-dark.svg';
+      headerLogo.src = isDark ? '../assets/logo-light.png' : '../assets/logo-dark.png';
     }
   }
 

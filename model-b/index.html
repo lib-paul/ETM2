@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Propuesta B para ETCONSULTORES. Una experiencia digital interactiva tipo app con navegación por paneles deslizantes, optimizada para dispositivos móviles.">
-  <title>ETCONSULTORES - Propuesta Interactiva App-Style</title>
+  <meta name="description" content="Propuesta B para ETCONSULTORES. Una experiencia digital interactiva premium con navegación por paneles deslizantes 3D.">
+  <title>ETCONSULTORES - Propuesta Interactiva Premium</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
@@ -34,64 +34,73 @@
   <!-- App Wrapper -->
   <div class="app-wrapper">
     
-    <!-- DESKTOP SIDEBAR -->
-    <aside class="desktop-sidebar">
-      <div class="sidebar-top">
-        <div class="sidebar-header-row">
-          <a href="#" class="sidebar-logo-link" data-target="0">
-            <img src="../assets/logo-light.svg" alt="Logo de ETCONSULTORES" class="sidebar-logo" id="sidebarLogo">
-          </a>
-          <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <!-- HEADER HORIZONTAL (Desktop & Mobile Top) -->
+    <header class="main-header" id="mainHeader">
+      <div class="header-container">
+        <a href="#" class="logo-link nav-btn" data-target="0">
+          <img src="../assets/logo-light.png" alt="Logo de ETCONSULTORES" class="header-logo" id="headerLogo">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <ul>
+            <li><button class="nav-link nav-btn active" data-target="0">Inicio</button></li>
+            <li><button class="nav-link nav-btn" data-target="1">Nosotros</button></li>
+            <li><button class="nav-link nav-btn" data-target="2">Servicios</button></li>
+            <li><button class="nav-link nav-btn btn-nav-cta" data-target="3">Contacto</button></li>
+            <li>
+              <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Cambiar tema">
+                <i class="fa-solid fa-sun"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Header Actions -->
+        <div class="mobile-header-actions">
+          <button id="mobileThemeToggleBtn" class="mobile-theme-toggle-btn" aria-label="Cambiar tema">
             <i class="fa-solid fa-sun"></i>
           </button>
+          <button class="mobile-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
         </div>
-        <div class="sidebar-brand-tag">PROPUESTA INTERACTIVA B</div>
-      </div>
-      
-      <nav class="sidebar-nav">
-        <ul>
-          <li>
-            <button class="sidebar-nav-btn active" data-target="0">
-              <i class="fa-solid fa-house"></i> <span>Inicio</span>
-            </button>
-          </li>
-          <li>
-            <button class="sidebar-nav-btn" data-target="1">
-              <i class="fa-solid fa-users"></i> <span>Nosotros</span>
-            </button>
-          </li>
-          <li>
-            <button class="sidebar-nav-btn" data-target="2">
-              <i class="fa-solid fa-compass-drafting"></i> <span>Servicios</span>
-            </button>
-          </li>
-          <li>
-            <button class="sidebar-nav-btn" data-target="3">
-              <i class="fa-solid fa-paper-plane"></i> <span>Contacto</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="sidebar-footer">
-        <div class="values-checklist">
-          <div class="value-check"><span class="bullet-indicator"></span> Precisión Técnica</div>
-          <div class="value-check"><span class="bullet-indicator"></span> Compromiso de Escala</div>
-        </div>
-        <p>&copy; 2026 ETCONSULTORES</p>
-      </div>
-    </aside>
-
-    <!-- MOBILE TOP BAR -->
-    <header class="mobile-top-bar">
-      <img src="../assets/logo-light.svg" alt="Logo de ETCONSULTORES" class="mobile-logo" data-target="0" id="mobileLogo">
-      <div class="mobile-header-right">
-        <button id="mobileThemeToggleBtn" class="mobile-theme-toggle-btn" aria-label="Cambiar tema">
-          <i class="fa-solid fa-sun"></i>
-        </button>
-        <div class="mobile-badge">Propuesta B</div>
       </div>
     </header>
+
+    <!-- MOBILE OVERLAY NAVIGATION -->
+    <div class="mobile-nav-overlay" id="mobileOverlay">
+      <nav class="mobile-nav">
+        <ul>
+          <li><button class="mobile-nav-link nav-btn" data-target="0">Inicio</button></li>
+          <li><button class="mobile-nav-link nav-btn" data-target="1">Nosotros</button></li>
+          <li><button class="mobile-nav-link nav-btn" data-target="2">Servicios</button></li>
+          <li><button class="mobile-nav-link nav-btn mobile-btn-nav-cta" data-target="3">Contacto</button></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- VERTICAL PAGER DOTS (Desktop Only) -->
+    <div class="vertical-pager" id="verticalPager">
+      <button class="pager-dot active" data-target="0" aria-label="Inicio">
+        <span class="pager-num">01</span>
+        <span class="pager-label">Inicio</span>
+      </button>
+      <button class="pager-dot" data-target="1" aria-label="Nosotros">
+        <span class="pager-num">02</span>
+        <span class="pager-label">Nosotros</span>
+      </button>
+      <button class="pager-dot" data-target="2" aria-label="Servicios">
+        <span class="pager-num">03</span>
+        <span class="pager-label">Servicios</span>
+      </button>
+      <button class="pager-dot" data-target="3" aria-label="Contacto">
+        <span class="pager-num">04</span>
+        <span class="pager-label">Contacto</span>
+      </button>
+    </div>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR -->
     <nav class="mobile-bottom-nav">
@@ -118,9 +127,7 @@
 
       <!-- PANEL 1: INICIO -->
       <section class="panel-section active" id="panel-inicio">
-        <!-- Floating waves overlay (Technical Hydraulic Theme) -->
         <div class="hydraulic-overlay"></div>
-        
         <div class="panel-content-scroll">
           <div class="hero-split grid-2">
             <!-- Hero text -->
@@ -154,14 +161,14 @@
               </div>
 
               <div class="panel-actions">
-                <button class="btn btn-primary next-panel-trigger" data-target="2">Explorar Servicios</button>
-                <button class="btn btn-secondary next-panel-trigger" data-target="3">Iniciar Consulta</button>
+                <button class="btn btn-primary nav-btn" data-target="2">Explorar Servicios</button>
+                <button class="btn btn-secondary nav-btn" data-target="3">Iniciar Consulta</button>
               </div>
             </div>
 
             <!-- Hero visual graphic with image and grid -->
             <div class="hero-graphic-block">
-              <div class="glass-image-card" style="background-image: url('../assets/hero-engineering.png');">
+              <div class="glass-image-card" style="background-image: url('../assets/hero-hydraulic.jpg');">
                 <div class="glass-image-content">
                   <h5>Especialidades Clave</h5>
                   <p>Modelación Pluvial • Cálculo Estructural • BIM 5D</p>
@@ -203,12 +210,13 @@
                   <div class="h-timeline-item">
                     <div class="h-timeline-year">2026</div>
                     <div class="h-timeline-text">
-                      <strong>Innovación:</strong> Integración de cálculos predictivos por IA y metodologías BIM.
+                      <strong>Innovación:</strong> Integración de cálculos predictivos por IA y metodologías BIM avanzadas.
                     </div>
                   </div>
                 </div>
               </div>
 
+              <!-- Mision / Vision / Valores -->
               <div class="mision-vision-glass">
                 <div class="mv-block">
                   <h5>Misión</h5>
@@ -216,14 +224,31 @@
                 </div>
                 <div class="mv-block">
                   <h5>Visión</h5>
-                  <p>Liderar la consultoría hidráulica y estructural regional en proyectos de alta complejidad.</p>
+                  <p>Liderar la consultoría hidráulica y estructural regional en proyectos de alta complejidad técnica.</p>
                 </div>
               </div>
             </div>
 
-            <!-- Right: Team Profiles -->
+            <!-- Right: Team Profiles & Values list -->
             <div class="about-team-block">
-              <h3 class="about-sub">Equipo Técnico Especializado</h3>
+              <h3 class="about-sub">Nuestros Valores y Equipo</h3>
+              
+              <!-- Values Bullet Checklist -->
+              <div class="values-checklist-panel">
+                <div class="value-bullet-item">
+                  <span class="bullet-circle"></span>
+                  <div>
+                    <strong>Ingeniería &amp; Precisión:</strong> Soluciones basadas en rigor técnico y cálculos detallados.
+                  </div>
+                </div>
+                <div class="value-bullet-item">
+                  <span class="bullet-circle"></span>
+                  <div>
+                    <strong>Confianza y Compromiso:</strong> Estrecha vinculación con los plazos y metas del cliente.
+                  </div>
+                </div>
+              </div>
+
               <div class="team-cards-stack">
                 <!-- Team card 1 -->
                 <div class="team-row-card">
@@ -241,15 +266,6 @@
                     <h4>Ing. Laura Méndez</h4>
                     <span class="tr-title">Estructuras & Infraestructura Vial</span>
                     <p>15 años calculando cimentaciones profundas y puentes vehiculares complejos.</p>
-                  </div>
-                </div>
-                <!-- Team card 3 -->
-                <div class="team-row-card">
-                  <div class="tr-avatar"><i class="fa-solid fa-chart-line"></i></div>
-                  <div class="tr-details">
-                    <h4>Dr. Andrés Rossi</h4>
-                    <span class="tr-title">Mecánica de Fluidos Computacional</span>
-                    <p>Doctor en modelado matemático bidimensional y transporte hidráulico.</p>
                   </div>
                 </div>
               </div>
