@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ETCONSULTORES - Consultoría líder en ingeniería civil, infraestructura hidráulica y gestión de construcción. Experiencia y precisión técnica a gran escala.">
+  <title>ETCONSULTORES - Ingeniería • Hidráulica • Construcción</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Header & Sticky Navigation -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      <a href="#inicio" class="logo-link">
+        <img src="../assets/logo-dark.svg" alt="ETCONSULTORES Logo" class="header-logo" id="headerLogo">
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+          <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#metodologia" class="nav-link">Metodología</a></li>
+          <li><a href="#contacto" class="nav-link btn-nav-cta">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Navigation -->
+  <div class="mobile-nav-overlay" id="mobileOverlay">
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#inicio" class="mobile-nav-link">Inicio</a></li>
+        <li><a href="#nosotros" class="mobile-nav-link">Nosotros</a></li>
+        <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+        <li><a href="#metodologia" class="mobile-nav-link">Metodología</a></li>
+        <li><a href="#contacto" class="mobile-nav-link mobile-btn-nav-cta">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section" style="background-image: linear-gradient(rgba(11, 29, 45, 0.82), rgba(11, 29, 45, 0.92)), url('../assets/hero-engineering.png');">
+      <div class="hero-container">
+        <div class="hero-badge animate-on-scroll">SOLUCIONES DE INFRAESTRUCTURA TÉCNICA</div>
+        <h1 class="hero-title animate-on-scroll">Precisión Técnica y Confianza a Gran Escala</h1>
+        <p class="hero-subtitle animate-on-scroll">
+          Somos una consultora especializada en ingeniería civil, proyectos hidráulicos complejos y dirección técnica de obras civiles e industriales.
+        </p>
+        <div class="hero-actions animate-on-scroll">
+          <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+          <a href="#contacto" class="btn btn-secondary">Solicitar Consulta</a>
+        </div>
+      </div>
+      <a href="#quienes-somos" class="scroll-down-indicator" aria-label="Bajar a Quiénes Somos">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- QUIENES SOMOS -->
+    <section id="quienes-somos" class="about-summary-section section-padding">
+      <div class="container grid-2">
+        <div class="about-summary-text animate-on-scroll">
+          <span class="section-tag">Presentación</span>
+          <h2 class="section-title">Quiénes Somos</h2>
+          <p class="text-lead">
+            ETCONSULTORES es una firma de consultoría y diseño técnico conformada por un equipo multidisciplinario de ingenieros y especialistas con sólida trayectoria en proyectos públicos y privados.
+          </p>
+          <p class="text-body">
+            Nuestra labor integra rigor científico, modelamiento numérico avanzado y técnicas constructivas de vanguardia para asegurar la viabilidad, sustentabilidad y máxima eficiencia económica de obras hidráulicas y viales de gran magnitud.
+          </p>
+          <div class="stats-mini-grid">
+            <div class="stat-mini-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Años de Trayectoria</span>
+            </div>
+            <div class="stat-mini-item">
+              <span class="stat-number">120+</span>
+              <span class="stat-label">Proyectos Concluidos</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-summary-image-wrapper animate-on-scroll">
+          <div class="tech-card-image" style="background-image: url('../assets/hero-water.png');">
+            <div class="tech-card-badge">
+              <i class="fa-solid fa-shield-halved"></i> Calidad Asegurada
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS SECTION -->
+    <section id="nosotros" class="about-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center animate-on-scroll">
+          <span class="section-tag">Trayectoria y Valores</span>
+          <h2 class="section-title">Nosotros</h2>
+          <p class="section-desc">
+            Nuestra estructura de trabajo se fundamenta en la experiencia comprobable de nuestros ingenieros y un compromiso inquebrantable con la precisión.
+          </p>
+        </div>
+
+        <!-- TIMELINE HISTÓRICO -->
+        <div class="timeline-wrapper animate-on-scroll">
+          <h3 class="subsection-title text-center">Nuestra Historia</h3>
+          <div class="timeline">
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <span class="timeline-date">2012</span>
+                <h4>Fundación de la Firma</h4>
+                <p>Nace ETCONSULTORES brindando cálculo estructural inicial y consultoría hidráulica urbana local con un núcleo de 3 profesionales.</p>
+              </div>
+            </div>
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <span class="timeline-date">2017</span>
+                <h4>Expansión Nacional</h4>
+                <p>Ingreso en licitaciones nacionales de envergadura, desarrollando estudios de modelación pluvial para tres de las principales provincias.</p>
+              </div>
+            </div>
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <span class="timeline-date">2021</span>
+                <h4>Infraestructura Crítica</h4>
+                <p>Ampliación del equipo de ingeniería vial e hidráulica de ríos, liderando la inspección técnica de complejos canales de trasvase.</p>
+              </div>
+            </div>
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <span class="timeline-date">2025</span>
+                <h4>Consolidación y Sustentabilidad</h4>
+                <p>Consolidación como una de las firmas más confiables del sector, integrando metodologías BIM e Inteligencia Artificial aplicada a la hidrología.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABS DE MISIÓN, VISIÓN Y VALORES -->
+        <div class="tabs-container animate-on-scroll">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="mision">Misión</button>
+            <button class="tab-btn" data-tab="vision">Visión</button>
+            <button class="tab-btn" data-tab="valores">Valores Clave</button>
+          </div>
+          <div class="tabs-content">
+            <div class="tab-pane active" id="mision">
+              <h4>Nuestra Misión</h4>
+              <p class="text-large">
+                Garantizar el éxito técnico, ambiental e institucional de las obras de ingeniería e infraestructura de nuestros clientes mediante estudios precisos, diseños innovadores y una dirección técnica rigurosa.
+              </p>
+            </div>
+            <div class="tab-pane" id="vision">
+              <h4>Nuestra Visión</h4>
+              <p class="text-large">
+                Consolidarnos para el año 2030 como la consultora técnica de referencia en ingeniería hidráulica e infraestructura en la región, reconocida por la excelencia analítica, ética profesional e innovación sustentable.
+              </p>
+            </div>
+            <div class="tab-pane" id="valores">
+              <h4>Nuestros Valores</h4>
+              <div class="valores-grid">
+                <div class="valor-card">
+                  <i class="fa-solid fa-compass-drafting"></i>
+                  <h5>Ingeniería</h5>
+                  <p>Soluciones basadas en ciencia y análisis técnico estricto.</p>
+                </div>
+                <div class="valor-card">
+                  <i class="fa-solid fa-bullseye"></i>
+                  <h5>Precisión</h5>
+                  <p>Modelamiento riguroso y tolerancias óptimas.</p>
+                </div>
+                <div class="valor-card">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <h5>Infraestructura</h5>
+                  <p>Desarrollo con visión a largo plazo para las comunidades.</p>
+                </div>
+                <div class="valor-card">
+                  <i class="fa-solid fa-handshake"></i>
+                  <h5>Confianza</h5>
+                  <p>Transparencia técnica y compromiso ético mutuo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFESIONALES DEL EQUIPO -->
+        <div class="team-wrapper animate-on-scroll">
+          <h3 class="subsection-title text-center">Nuestro Equipo Técnico</h3>
+          <p class="subsection-subtitle text-center">Profesionales de primer nivel con probada trayectoria y especialización académica.</p>
+          
+          <div class="team-grid">
+            <!-- Team 1 -->
+            <div class="team-card">
+              <div class="team-img-placeholder">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <div class="team-info">
+                <h4>Ing. Esteban Torres</h4>
+                <span class="team-role">Director General & Especialista Hidráulico</span>
+                <p class="team-desc">
+                  Ingeniero Civil con Master en Hidrología. Más de 25 años dirigiendo proyectos de control de inundaciones y presas.
+                </p>
+                <div class="team-skills">
+                  <span class="skill-tag">Hidráulica</span>
+                  <span class="skill-tag">Planificación</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Team 2 -->
+            <div class="team-card">
+              <div class="team-img-placeholder">
+                <i class="fa-solid fa-user-gear"></i>
+              </div>
+              <div class="team-info">
+                <h4>Ing. Laura Méndez</h4>
+                <span class="team-role">Coordinadora de Proyectos Civiles</span>
+                <p class="team-desc">
+                  Especialista en cálculo estructural de hormigón armado y metálico. 15 años coordinando pliegos y diseños viales.
+                </p>
+                <div class="team-skills">
+                  <span class="skill-tag">Estructuras</span>
+                  <span class="skill-tag">Vías Civiles</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Team 3 -->
+            <div class="team-card">
+              <div class="team-img-placeholder">
+                <i class="fa-solid fa-user-check"></i>
+              </div>
+              <div class="team-info">
+                <h4>Dr. Andrés Rossi</h4>
+                <span class="team-role">Consultor en Mecánica de Fluidos</span>
+                <p class="team-desc">
+                  Doctor en Ciencias de la Ingeniería. Experto en modelación matemática bidimensional de flujos libres y transporte de sedimentos.
+                </p>
+                <div class="team-skills">
+                  <span class="skill-tag">Modelación 2D</span>
+                  <span class="skill-tag">Investigación</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS SECTION -->
+    <section id="servicios" class="services-section section-padding">
+      <div class="container">
+        <div class="section-header text-center animate-on-scroll">
+          <span class="section-tag">Nuestras Especialidades</span>
+          <h2 class="section-title">Servicios Profesionales</h2>
+          <p class="section-desc">
+            Brindamos asesoría en todo el ciclo de vida de los proyectos de infraestructura, desde la factibilidad inicial hasta la auditoría de obra terminada.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h3>Consultoría Hidráulica</h3>
+            <p class="service-summary">
+              Modelación y diseño técnico avanzado para el control, canalización y aprovechamiento óptimo de los recursos hídricos.
+            </p>
+            <div class="service-details">
+              <h4>Alcance del Servicio:</h4>
+              <ul>
+                <li>Estudios de crecidas e inundabilidad fluvial y pluvial.</li>
+                <li>Diseño de presas, aliviaderos, estaciones de bombeo y canales.</li>
+                <li>Modelación matemática unidimensional y bidimensional.</li>
+              </ul>
+              <h4>Beneficios Clave:</h4>
+              <p class="benefit-text">
+                Mitigación efectiva de riesgos de inundación, cumplimiento normativo ambiental estricto y optimización de costos en obras hidráulicas de gran escala.
+              </p>
+            </div>
+            <button class="btn-toggle-service">Ampliar Detalles <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+            <h3>Ingeniería Civil & Estructural</h3>
+            <p class="service-summary">
+              Diseño, cálculo y desarrollo de planos ejecutivos para infraestructuras civiles, viales e industriales complejas.
+            </p>
+            <div class="service-details">
+              <h4>Alcance del Servicio:</h4>
+              <ul>
+                <li>Cálculo de estructuras de hormigón armado, pretensado y metálicas.</li>
+                <li>Diseño geométrico de carreteras, accesos e intersecciones.</li>
+                <li>Análisis geotécnico y dimensionamiento de fundaciones.</li>
+              </ul>
+              <h4>Beneficios Clave:</h4>
+              <p class="benefit-text">
+                Máxima seguridad estructural, optimización en el consumo de materiales (acero/hormigón) y generación de pliegos técnicos listos para licitación.
+              </p>
+            </div>
+            <button class="btn-toggle-service">Ampliar Detalles <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <h3>Gestión & Dirección de Obra</h3>
+            <p class="service-summary">
+              Supervisión técnica rigurosa y gerenciamiento de proyectos para garantizar plazos, presupuesto y estándares de calidad.
+            </p>
+            <div class="service-details">
+              <h4>Alcance del Servicio:</h4>
+              <ul>
+                <li>Auditorías e inspecciones técnicas de obra periódicas.</li>
+                <li>Control y planificación de avance físico-financiero (BIM-5D).</li>
+                <li>Aseguramiento y control de calidad de materiales en sitio.</li>
+              </ul>
+              <h4>Beneficios Clave:</h4>
+              <p class="benefit-text">
+                Minimización de desvíos presupuestarios, prevención de demoras constructivas y garantía contractual del cumplimiento estricto del proyecto ejecutivo.
+              </p>
+            </div>
+            <button class="btn-toggle-service">Ampliar Detalles <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGÍA SECTION -->
+    <section id="metodologia" class="methodology-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center animate-on-scroll">
+          <span class="section-tag">Cómo Trabajamos</span>
+          <h2 class="section-title">Metodología de Trabajo</h2>
+          <p class="section-desc">
+            Seguimos un proceso riguroso y transparente en fases consecutivas que garantiza la viabilidad técnica y el control total de cada proyecto.
+          </p>
+        </div>
+
+        <div class="stepper-wrapper animate-on-scroll">
+          <div class="step-item">
+            <div class="step-circle">1</div>
+            <div class="step-content">
+              <h4>1. Diagnóstico y Relevamiento</h4>
+              <p>Relevamos datos topográficos, geotécnicos e hidrológicos in-situ. Analizamos los requerimientos normativos y las metas del cliente.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <div class="step-content">
+              <h4>2. Modelamiento y Análisis Numérico</h4>
+              <p>Procesamos los datos con software avanzado de cálculo y simulamos escenarios hidráulicos y de esfuerzos mecánicos complejos.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <div class="step-content">
+              <h4>3. Diseño de Proyecto Ejecutivo</h4>
+              <p>Elaboramos planos constructivos detallados, especificaciones de materiales, cómputos de presupuesto y pliegos técnicos.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">4</div>
+            <div class="step-content">
+              <h4>4. Inspección y Dirección Técnica</h4>
+              <p>Supervisamos el inicio y desarrollo de la obra física en el terreno para validar la correcta ejecución de lo proyectado.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">5</div>
+            <div class="step-content">
+              <h4>5. Auditoría y Cierre</h4>
+              <p>Efectuamos el análisis final conforme a obra, certificamos ensayos de calidad y entregamos la documentación técnica definitiva.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section id="contacto" class="contact-section section-padding">
+      <div class="container grid-2">
+        <!-- Contact Form Side -->
+        <div class="contact-form-wrapper animate-on-scroll">
+          <span class="section-tag">Canal de Consultas</span>
+          <h2 class="section-title">Formulario de Consultas</h2>
+          <p class="contact-form-intro">
+            Rellene el formulario a continuación y un ingeniero especialista de nuestro equipo lo contactará en menos de 24 horas hábiles.
+          </p>
+
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-row grid-2">
+              <div class="form-group">
+                <label for="name">Nombre y Apellido <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <span class="error-msg" id="nameError">El nombre es requerido y no debe contener números.</span>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo Electrónico <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="email" name="email" placeholder="Ej: jperez@empresa.com" required>
+                </div>
+                <span class="error-msg" id="emailError">Ingrese un correo electrónico válido.</span>
+              </div>
+            </div>
+
+            <div class="form-row grid-2">
+              <div class="form-group">
+                <label for="phone">Teléfono de Contacto</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" id="phone" name="phone" placeholder="Ej: +54 9 11 1234-5678">
+                </div>
+                <span class="error-msg" id="phoneError">Ingrese un número telefónico válido (solo números y signos + o -).</span>
+              </div>
+              <div class="form-group">
+                <label for="service">Servicio de Interés <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-list-check"></i>
+                  <select id="service" name="service" required>
+                    <option value="" disabled selected>Seleccione una opción...</option>
+                    <option value="hidraulica">Consultoría Hidráulica</option>
+                    <option value="ingenieria">Ingeniería Civil & Estructural</option>
+                    <option value="direccion">Gestión & Dirección de Obra</option>
+                    <option value="otro">Otras Consultas Especiales</option>
+                  </select>
+                </div>
+                <span class="error-msg" id="serviceError">Seleccione un servicio de interés.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje / Descripción del Proyecto <span class="required">*</span></label>
+              <div class="input-wrapper textarea-wrapper">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <textarea id="message" name="message" rows="5" placeholder="Describa brevemente el alcance de la consultoría requerida..." required></textarea>
+              </div>
+              <span class="error-msg" id="messageError">El mensaje es requerido (mínimo 15 caracteres).</span>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                <span>Enviar Consulta</span> <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+
+            <!-- Success/Error Global Banners -->
+            <div class="form-status success" id="formSuccess">
+              <i class="fa-solid fa-circle-check"></i> ¡Consulta enviada con éxito! Nos comunicaremos a la brevedad.
+            </div>
+            <div class="form-status error" id="formError">
+              <i class="fa-solid fa-circle-xmark"></i> Por favor corrija los campos marcados en rojo antes de enviar.
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact Info & Map Side -->
+        <div class="contact-info-wrapper animate-on-scroll">
+          <span class="section-tag">Datos de la Consultora</span>
+          <h2 class="section-title">Canales de Comunicación</h2>
+          <p class="contact-info-intro">
+            También puede comunicarse directamente con nuestras oficinas o visitarnos previa coordinación.
+          </p>
+
+          <div class="contact-methods">
+            <div class="method-item">
+              <div class="method-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div class="method-text">
+                <h5>Oficina Central</h5>
+                <p>Av. Madero 1020, Piso 14, Puerto Madero, CABA, Argentina</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <div class="method-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="method-text">
+                <h5>Línea Telefónica</h5>
+                <p>+54 11 1234-5678 (Lunes a Viernes de 9:00 a 18:00 hs)</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <div class="method-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div class="method-text">
+                <h5>Correo de Consultas</h5>
+                <p>info@etconsultores.com.ar</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CSS Mockup Map -->
+          <div class="map-mockup">
+            <div class="map-grid-pattern"></div>
+            <div class="map-river"></div>
+            <div class="map-road-1"></div>
+            <div class="map-road-2"></div>
+            <div class="map-pin">
+              <i class="fa-solid fa-location-pin"></i>
+              <div class="map-pin-pulse"></div>
+            </div>
+            <div class="map-label">ETCONSULTORES</div>
+          </div>
+
+          <!-- Social Channels -->
+          <div class="social-channels">
+            <h5>Síganos en nuestras Redes</h5>
+            <div class="social-icons">
+              <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.svg" alt="ETCONSULTORES Logo" class="footer-logo">
+        <p>
+          Brindando soluciones de ingeniería, estudios hidráulicos avanzados e inspección técnica de obras desde 2012.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes Somos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodologia">Metodología</a></li>
+        </ul>
+      </div>
+      <div class="footer-specialties">
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#servicios">Modelamiento Pluvial</a></li>
+          <li><a href="#servicios">Estructuras Complejas</a></li>
+          <li><a href="#servicios">Cálculo Geotécnico</a></li>
+          <li><a href="#servicios">Inspección de Obras</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 ETCONSULTORES. Todos los derechos reservados.</p>
+        <div class="footer-extra-links">
+          <a href="../index.html" class="back-to-portal-btn"><i class="fa-solid fa-arrow-left"></i> Cambiar Modelo</a>
+          <a href="#">Políticas de Privacidad</a>
+          <a href="#">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

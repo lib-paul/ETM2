@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Propuesta de mockup interactivo para ETCONSULTORES. Explora dos modelos diferentes de sitio web para consultoría en ingeniería, hidráulica y construcción.">
+  <title>ETCONSULTORES - Propuestas de Mockup Web</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for beautiful icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <!-- Background tech grid decor -->
+  <div class="grid-overlay"></div>
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <main class="portal-container">
+    <header class="portal-header">
+      <div class="logo-wrapper">
+        <img src="assets/logo-light.svg" alt="ETCONSULTORES Logo" class="brand-logo">
+      </div>
+      <p class="subtitle">MOCKUPS DE PROPUESTA WEB • ESTRUCTURA INICIAL</p>
+      <h1 class="main-title">Elegir Modelo de Navegación</h1>
+      <p class="description">
+        Hemos preparado dos alternativas interactivas que plasman la identidad técnica y sólida de 
+        <strong>ETCONSULTORES</strong>. Ambas son adaptables a móviles (Mobile-First) y optimizadas para SEO.
+      </p>
+    </header>
+
+    <div class="models-grid">
+      <!-- MODEL A CARD -->
+      <a href="model-a/index.html" class="model-card card-a">
+        <div class="card-badge">PROPUESTA A</div>
+        <div class="card-icon">
+          <i class="fa-solid fa-scroll"></i>
+        </div>
+        <h2 class="card-title">Continuous Scroll</h2>
+        <p class="card-desc">
+          Presentación corporativa tradicional con desplazamiento continuo muy fluido. Ideal para una lectura secuencial y estructurada del contenido.
+        </p>
+        <ul class="card-features">
+          <li><i class="fa-solid fa-check"></i> Menú sticky con barra de progreso</li>
+          <li><i class="fa-solid fa-check"></i> Timeline histórico interactivo</li>
+          <li><i class="fa-solid fa-check"></i> Sección de equipo y servicios en grids fluidas</li>
+          <li><i class="fa-solid fa-check"></i> Animaciones al deslizar (Scroll Entrance)</li>
+        </ul>
+        <span class="btn-enter">Ver Modelo A <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+
+      <!-- MODEL B CARD -->
+      <a href="model-b/index.html" class="model-card card-b">
+        <div class="card-badge highlight">PROPUESTA B</div>
+        <div class="card-icon">
+          <i class="fa-solid fa-square-poll-horizontal"></i>
+        </div>
+        <h2 class="card-title">Slide Panels</h2>
+        <p class="card-desc">
+          Navegación interactiva por secciones completas tipo diapositivas/dashboard. Enfoque moderno con alto impacto visual y adaptabilidad táctil.
+        </p>
+        <ul class="card-features">
+          <li><i class="fa-solid fa-check"></i> Barra de navegación inferior en móviles (App-Style)</li>
+          <li><i class="fa-solid fa-check"></i> Transiciones fluidas entre pantallas</li>
+          <li><i class="fa-solid fa-check"></i> Contadores dinámicos de estadísticas</li>
+          <li><i class="fa-solid fa-check"></i> Soporte de gestos táctiles (Swipe)</li>
+        </ul>
+        <span class="btn-enter">Ver Modelo B <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <footer class="portal-footer">
+      <p>ETCONSULTORES • Sistema de Identidad Visual v1.0 • Mayo 2025</p>
+      <p class="tech-stack">Tecnología: HTML5 / Vanilla CSS3 / JavaScript ES6</p>
+    </footer>
+  </main>
+
+  <script src="portal.js"></script>
+</body>
+</html>

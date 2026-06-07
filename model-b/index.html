@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Propuesta B para ETCONSULTORES. Una experiencia digital interactiva tipo app con navegación por paneles deslizantes, optimizada para dispositivos móviles.">
+  <title>ETCONSULTORES - Propuesta Interactiva App-Style</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- App Wrapper -->
+  <div class="app-wrapper">
+    
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="desktop-sidebar">
+      <div class="sidebar-top">
+        <a href="#" class="sidebar-logo-link" data-target="0">
+          <img src="../assets/logo-light.svg" alt="ETCONSULTORES Logo" class="sidebar-logo">
+        </a>
+        <div class="sidebar-brand-tag">PROPUESTA INTERACTIVA B</div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <button class="sidebar-nav-btn active" data-target="0">
+              <i class="fa-solid fa-house"></i> <span>Inicio</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-nav-btn" data-target="1">
+              <i class="fa-solid fa-users"></i> <span>Nosotros</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-nav-btn" data-target="2">
+              <i class="fa-solid fa-compass-drafting"></i> <span>Servicios</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-nav-btn" data-target="3">
+              <i class="fa-solid fa-paper-plane"></i> <span>Contacto</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="values-checklist">
+          <div class="value-check"><i class="fa-solid fa-square-check"></i> Precisión Técnica</div>
+          <div class="value-check"><i class="fa-solid fa-square-check"></i> Compromiso de Escala</div>
+        </div>
+        <p>&copy; 2026 ETCONSULTORES</p>
+      </div>
+    </aside>
+
+    <!-- MOBILE TOP BAR -->
+    <header class="mobile-top-bar">
+      <img src="../assets/logo-light.svg" alt="ETCONSULTORES Logo" class="mobile-logo" data-target="0">
+      <div class="mobile-badge">Propuesta B</div>
+    </header>
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR -->
+    <nav class="mobile-bottom-nav">
+      <button class="mobile-nav-btn active" data-target="0" aria-label="Inicio">
+        <i class="fa-solid fa-house"></i>
+        <span>Inicio</span>
+      </button>
+      <button class="mobile-nav-btn" data-target="1" aria-label="Nosotros">
+        <i class="fa-solid fa-users"></i>
+        <span>Nosotros</span>
+      </button>
+      <button class="mobile-nav-btn" data-target="2" aria-label="Servicios">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span>Servicios</span>
+      </button>
+      <button class="mobile-nav-btn" data-target="3" aria-label="Contacto">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Contacto</span>
+      </button>
+    </nav>
+
+    <!-- PANELS CONTAINER -->
+    <main class="panels-container" id="panelsContainer">
+
+      <!-- PANEL 1: INICIO -->
+      <section class="panel-section active" id="panel-inicio">
+        <!-- Floating waves overlay (Technical Hydraulic Theme) -->
+        <div class="hydraulic-overlay"></div>
+        
+        <div class="panel-content-scroll">
+          <div class="hero-split grid-2">
+            <!-- Hero text -->
+            <div class="hero-text-block">
+              <span class="panel-tag"><i class="fa-solid fa-shield-halved"></i> Calidad e Ingeniería Civil</span>
+              <h1 class="panel-title">Consultoría Técnica de Alta Complejidad</h1>
+              <p class="panel-subtitle">
+                Especialistas en estudios hidrológicos, diseño estructural y dirección técnica de infraestructuras a gran escala.
+              </p>
+              
+              <!-- Metrics counter display -->
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <div class="metric-number-wrapper">
+                    <span class="metric-num" data-count="15">0</span><span class="metric-plus">+</span>
+                  </div>
+                  <p class="metric-label">Años de Trayectoria</p>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-number-wrapper">
+                    <span class="metric-num" data-count="120">0</span><span class="metric-plus">+</span>
+                  </div>
+                  <p class="metric-label">Grandes Proyectos</p>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-number-wrapper">
+                    <span class="metric-num" data-count="98">0</span><span class="metric-plus">%</span>
+                  </div>
+                  <p class="metric-label">Satisfacción Técnica</p>
+                </div>
+              </div>
+
+              <div class="panel-actions">
+                <button class="btn btn-primary next-panel-trigger" data-target="2">Explorar Servicios</button>
+                <button class="btn btn-secondary next-panel-trigger" data-target="3">Iniciar Consulta</button>
+              </div>
+            </div>
+
+            <!-- Hero visual graphic with image and grid -->
+            <div class="hero-graphic-block">
+              <div class="glass-image-card" style="background-image: url('../assets/hero-engineering.png');">
+                <div class="glass-image-content">
+                  <h5>Especialidades Clave</h5>
+                  <p>Modelación Pluvial • Cálculo Estructural • BIM 5D</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 2: NOSOTROS -->
+      <section class="panel-section next" id="panel-nosotros">
+        <div class="panel-content-scroll">
+          <div class="panel-section-header">
+            <span class="panel-tag">Trayectoria de Excelencia</span>
+            <h2 class="panel-title-sec">Sobre ETCONSULTORES</h2>
+            <p class="panel-desc-sec">Integrando rigor científico y precisión metodológica en cada fase del diseño.</p>
+          </div>
+
+          <!-- Asymmetric Split: History & Core Values -->
+          <div class="about-grid grid-2">
+            <!-- Left: Timeline & History -->
+            <div class="about-history-block">
+              <h3 class="about-sub">Nuestra Historia</h3>
+              <div class="timeline-horizontal-wrapper">
+                <div class="h-timeline">
+                  <div class="h-timeline-item">
+                    <div class="h-timeline-year">2012</div>
+                    <div class="h-timeline-text">
+                      <strong>Fundación:</strong> Se conforma la consultora especializada en proyectos pluviales.
+                    </div>
+                  </div>
+                  <div class="h-timeline-item">
+                    <div class="h-timeline-year">2018</div>
+                    <div class="h-timeline-text">
+                      <strong>Madurez:</strong> Auditoría hidráulica de canales de vertedero para obras nacionales.
+                    </div>
+                  </div>
+                  <div class="h-timeline-item">
+                    <div class="h-timeline-year">2026</div>
+                    <div class="h-timeline-text">
+                      <strong>Innovación:</strong> Integración de cálculos predictivos por IA y metodologías BIM.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mision-vision-glass">
+                <div class="mv-block">
+                  <h5>Misión</h5>
+                  <p>Brindar soluciones técnicas de infraestructura con precisión científica y sustentabilidad ambiental.</p>
+                </div>
+                <div class="mv-block">
+                  <h5>Visión</h5>
+                  <p>Liderar la consultoría hidráulica y estructural regional en proyectos de alta complejidad.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Team Profiles -->
+            <div class="about-team-block">
+              <h3 class="about-sub">Equipo Técnico Especializado</h3>
+              <div class="team-cards-stack">
+                <!-- Team card 1 -->
+                <div class="team-row-card">
+                  <div class="tr-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
+                  <div class="tr-details">
+                    <h4>Ing. Esteban Torres</h4>
+                    <span class="tr-title">Especialista Hidráulico & Director</span>
+                    <p>Trayectoria de 25 años en control aluvional y modelación de flujos libres.</p>
+                  </div>
+                </div>
+                <!-- Team card 2 -->
+                <div class="team-row-card">
+                  <div class="tr-avatar"><i class="fa-solid fa-gears"></i></div>
+                  <div class="tr-details">
+                    <h4>Ing. Laura Méndez</h4>
+                    <span class="tr-title">Estructuras & Infraestructura Vial</span>
+                    <p>15 años calculando cimentaciones profundas y puentes vehiculares complejos.</p>
+                  </div>
+                </div>
+                <!-- Team card 3 -->
+                <div class="team-row-card">
+                  <div class="tr-avatar"><i class="fa-solid fa-chart-line"></i></div>
+                  <div class="tr-details">
+                    <h4>Dr. Andrés Rossi</h4>
+                    <span class="tr-title">Mecánica de Fluidos Computacional</span>
+                    <p>Doctor en modelado matemático bidimensional y transporte hidráulico.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 3: SERVICIOS -->
+      <section class="panel-section next" id="panel-servicios">
+        <div class="panel-content-scroll">
+          <div class="panel-section-header">
+            <span class="panel-tag">Nuestras Soluciones</span>
+            <h2 class="panel-title-sec">Áreas de Consultoría</h2>
+            <p class="panel-desc-sec">Servicios de ingeniería enfocados en la solidez, seguridad y optimización presupuestaria.</p>
+          </div>
+
+          <!-- Services Carousel/Accordion Accordion Cards -->
+          <div class="services-accordion-wrapper">
+            <!-- Accordion 1 -->
+            <div class="accordion-item active">
+              <div class="accordion-trigger">
+                <div class="acc-title-left">
+                  <span class="acc-num">01</span>
+                  <i class="fa-solid fa-droplet acc-icon"></i>
+                  <h3>Consultoría Hidráulica Aplicada</h3>
+                </div>
+                <div class="acc-trigger-icon"><i class="fa-solid fa-plus"></i></div>
+              </div>
+              <div class="accordion-content">
+                <div class="acc-content-inner grid-2">
+                  <div class="acc-details">
+                    <h4>Alcance y Aplicación</h4>
+                    <ul>
+                      <li>Modelación hidrológica y redes de alcantarillado pluvial urbano.</li>
+                      <li>Diseño técnico de presas de embalse, obras de toma y vertederos.</li>
+                      <li>Simulación matemática hidráulica (1D/2D HEC-RAS, Iber).</li>
+                    </ul>
+                  </div>
+                  <div class="acc-benefits">
+                    <h4>Beneficios de Consultoría</h4>
+                    <p class="benefit-box">
+                      Seguridad frente a eventos climáticos extremos, optimización en el diseño de canales hidráulicos y cumplimiento ágil de licencias ambientales y técnicas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion 2 -->
+            <div class="accordion-item">
+              <div class="accordion-trigger">
+                <div class="acc-title-left">
+                  <span class="acc-num">02</span>
+                  <i class="fa-solid fa-compass-drafting acc-icon"></i>
+                  <h3>Diseño Estructural & Civil</h3>
+                </div>
+                <div class="acc-trigger-icon"><i class="fa-solid fa-plus"></i></div>
+              </div>
+              <div class="accordion-content">
+                <div class="acc-content-inner grid-2">
+                  <div class="acc-details">
+                    <h4>Alcance y Aplicación</h4>
+                    <ul>
+                      <li>Cálculo estructural avanzado para puentes, naves industriales y edificios técnicos.</li>
+                      <li>Geotecnia vial, dimensionamiento estructural de pavimentos y contenciones.</li>
+                      <li>Planos de detalle constructivo, memorias de cálculo y cómputos métricos.</li>
+                    </ul>
+                  </div>
+                  <div class="acc-benefits">
+                    <h4>Beneficios de Consultoría</h4>
+                    <p class="benefit-box">
+                      Estabilidad mecánica certificada con coeficientes de seguridad optimizados, reduciendo el gasto de acero y hormigón hasta en un 15% mediante análisis dinámico.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion 3 -->
+            <div class="accordion-item">
+              <div class="accordion-trigger">
+                <div class="acc-title-left">
+                  <span class="acc-num">03</span>
+                  <i class="fa-solid fa-helmet-safety acc-icon"></i>
+                  <h3>Dirección y Gerenciamiento de Obra</h3>
+                </div>
+                <div class="acc-trigger-icon"><i class="fa-solid fa-plus"></i></div>
+              </div>
+              <div class="accordion-content">
+                <div class="acc-content-inner grid-2">
+                  <div class="acc-details">
+                    <h4>Alcance y Aplicación</h4>
+                    <ul>
+                      <li>Planificación, programación de obra y control de hitos físico-financieros.</li>
+                      <li>Inspección técnica periódica in-situ con aseguramiento de calidad de materiales.</li>
+                      <li>Asesoramiento y auditoría en la recepción provisional y definitiva de obras.</li>
+                    </ul>
+                  </div>
+                  <div class="acc-benefits">
+                    <h4>Beneficios de Consultoría</h4>
+                    <p class="benefit-box">
+                      Garantía de ejecución fiel del pliego técnico, minimización de contingencias de sobrecosto y retrasos de subcontratistas durante el proceso de construcción.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 4: CONTACTO -->
+      <section class="panel-section next" id="panel-contacto">
+        <div class="panel-content-scroll">
+          <div class="panel-section-header">
+            <span class="panel-tag">Presupuesto y Consultas</span>
+            <h2 class="panel-title-sec">Contáctanos</h2>
+            <p class="panel-desc-sec">Envíanos los requerimientos de tu proyecto y te responderemos a la brevedad.</p>
+          </div>
+
+          <div class="contact-split grid-2">
+            <!-- Left Side Form -->
+            <div class="contact-card-glass">
+              <form id="panelContactForm" class="panel-contact-form" novalidate>
+                <div class="form-group-glass">
+                  <label for="pName">Nombre y Apellido *</label>
+                  <input type="text" id="pName" placeholder="Juan Pérez" required>
+                  <span class="p-error">El nombre es requerido (mínimo 3 letras).</span>
+                </div>
+                
+                <div class="form-group-glass">
+                  <label for="pEmail">Correo Electrónico *</label>
+                  <input type="email" id="pEmail" placeholder="jperez@empresa.com" required>
+                  <span class="p-error">Ingrese un correo válido.</span>
+                </div>
+
+                <div class="form-group-glass">
+                  <label for="pService">Área de Consulta *</label>
+                  <select id="pService" required>
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="hidraulica">Consultoría Hidráulica</option>
+                    <option value="ingenieria">Ingeniería Estructural</option>
+                    <option value="inspeccion">Gestión de Obra</option>
+                  </select>
+                  <span class="p-error">Seleccione un área técnica.</span>
+                </div>
+
+                <div class="form-group-glass">
+                  <label for="pMessage">Descripción del Proyecto *</label>
+                  <textarea id="pMessage" rows="4" placeholder="Describa el alcance de la consultoría..." required></textarea>
+                  <span class="p-error">Mensaje requerido (mínimo 15 caracteres).</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit-glass">
+                  Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+                <!-- Status banners -->
+                <div class="glass-form-status success" id="pSuccess">
+                  <i class="fa-solid fa-circle-check"></i> Mensaje enviado correctamente.
+                </div>
+                <div class="glass-form-status error" id="pError">
+                  <i class="fa-solid fa-circle-xmark"></i> Complete los campos requeridos en rojo.
+                </div>
+              </form>
+            </div>
+
+            <!-- Right Side details -->
+            <div class="contact-details-glass">
+              <div class="contact-detail-row">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                  <h5>Dirección</h5>
+                  <p>Av. Madero 1020, Piso 14, Puerto Madero, CABA</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                  <h5>Teléfono</h5>
+                  <p>+54 11 1234-5678</p>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <div>
+                  <h5>Correo Electrónico</h5>
+                  <p>info@etconsultores.com.ar</p>
+                </div>
+              </div>
+
+              <!-- Quick Link Switcher Back -->
+              <div class="back-link-wrapper">
+                <a href="../index.html" class="btn-back-portal"><i class="fa-solid fa-arrow-left"></i> Cambiar Modelo de SPA</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Custom Script -->
+  <script src="app.js"></script>
+</body>
+</html>
