@@ -6,18 +6,31 @@
   <meta name="description" content="Propuesta de mockup interactivo para ETCONSULTORES. Explora dos modelos diferentes de sitio web para consultoría en ingeniería, hidráulica y construcción.">
   <title>ETCONSULTORES - Propuestas de Mockup Web</title>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome for beautiful icons -->
+  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="portal.css">
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner">
+        <img src="assets/favicon.svg" alt="Cargando...">
+      </div>
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
   <!-- Background tech grid decor -->
   <div class="grid-overlay"></div>
   <div class="glow-orb-1"></div>
@@ -26,9 +39,9 @@
   <main class="portal-container">
     <header class="portal-header">
       <div class="logo-wrapper">
-        <img src="assets/logo-light.svg" alt="ETCONSULTORES Logo" class="brand-logo">
+        <img src="assets/logo-light.svg" alt="Logo de ETCONSULTORES" class="brand-logo">
       </div>
-      <p class="subtitle">MOCKUPS DE PROPUESTA WEB • ESTRUCTURA INICIAL</p>
+      <p class="subtitle">PROPUESTAS DE MOCKUP WEB • VERSIÓN DE EVALUACIÓN</p>
       <h1 class="main-title">Elegir Modelo de Navegación</h1>
       <p class="description">
         Hemos preparado dos alternativas interactivas que plasman la identidad técnica y sólida de 
@@ -43,15 +56,15 @@
         <div class="card-icon">
           <i class="fa-solid fa-scroll"></i>
         </div>
-        <h2 class="card-title">Continuous Scroll</h2>
+        <h2 class="card-title">Desplazamiento Continuo</h2>
         <p class="card-desc">
-          Presentación corporativa tradicional con desplazamiento continuo muy fluido. Ideal para una lectura secuencial y estructurada del contenido.
+          Presentación corporativa tradicional con desplazamiento continuo muy fluido. Ideal para una lectura secuencial y estructurada de las secciones de la consultora.
         </p>
         <ul class="card-features">
-          <li><i class="fa-solid fa-check"></i> Menú sticky con barra de progreso</li>
-          <li><i class="fa-solid fa-check"></i> Timeline histórico interactivo</li>
-          <li><i class="fa-solid fa-check"></i> Sección de equipo y servicios en grids fluidas</li>
-          <li><i class="fa-solid fa-check"></i> Animaciones al deslizar (Scroll Entrance)</li>
+          <li><i class="fa-solid fa-check"></i> Menú pegajoso con barra de progreso</li>
+          <li><i class="fa-solid fa-check"></i> Línea de tiempo histórica interactiva</li>
+          <li><i class="fa-solid fa-check"></i> Modo Claro y Modo Oscuro integrado</li>
+          <li><i class="fa-solid fa-check"></i> Detalles de servicios en ventana emergente (Pop-Up)</li>
         </ul>
         <span class="btn-enter">Ver Modelo A <i class="fa-solid fa-arrow-right"></i></span>
       </a>
@@ -62,15 +75,15 @@
         <div class="card-icon">
           <i class="fa-solid fa-square-poll-horizontal"></i>
         </div>
-        <h2 class="card-title">Slide Panels</h2>
+        <h2 class="card-title">Paneles Deslizantes</h2>
         <p class="card-desc">
-          Navegación interactiva por secciones completas tipo diapositivas/dashboard. Enfoque moderno con alto impacto visual y adaptabilidad táctil.
+          Navegación interactiva por secciones completas tipo diapositivas/app. Enfoque moderno con alto impacto visual, controles táctiles y barra inferior en móviles.
         </p>
         <ul class="card-features">
-          <li><i class="fa-solid fa-check"></i> Barra de navegación inferior en móviles (App-Style)</li>
+          <li><i class="fa-solid fa-check"></i> Barra de navegación inferior en móviles (Estilo App)</li>
           <li><i class="fa-solid fa-check"></i> Transiciones fluidas entre pantallas</li>
           <li><i class="fa-solid fa-check"></i> Contadores dinámicos de estadísticas</li>
-          <li><i class="fa-solid fa-check"></i> Soporte de gestos táctiles (Swipe)</li>
+          <li><i class="fa-solid fa-check"></i> Modo Claro y Modo Oscuro seleccionable</li>
         </ul>
         <span class="btn-enter">Ver Modelo B <i class="fa-solid fa-arrow-right"></i></span>
       </a>
@@ -78,7 +91,7 @@
 
     <footer class="portal-footer">
       <p>ETCONSULTORES • Sistema de Identidad Visual v1.0 • Mayo 2025</p>
-      <p class="tech-stack">Tecnología: HTML5 / Vanilla CSS3 / JavaScript ES6</p>
+      <p class="tech-stack">Tecnología: HTML5 / Vainilla CSS3 / JavaScript ES6</p>
     </footer>
   </main>
 

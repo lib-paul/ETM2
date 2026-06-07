@@ -1,7 +1,85 @@
-// model-a/app.js - Lógica Interactiva para Modelo Scroll Continuo
+// model-a/app.js - Lógica Interactiva y Temas para Modelo Scroll Continuo
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. MENÚ MÓVIL Y COLLAPSE ---
+  // --- 1. PRELOADER Y CARGA INICIAL ---
+  const preloader = document.getElementById('preloader');
+  
+  window.addEventListener('load', () => {
+    if (preloader) {
+      preloader.classList.add('fade-out');
+    }
+  });
+
+  // Respaldo de seguridad para quitar preloader
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('fade-out')) {
+      preloader.classList.add('fade-out');
+    }
+  }, 1000);
+
+
+  // --- 2. GESTIÓN DE TEMA CLARO / OSCURO (LIGHT/DARK MODE) ---
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const mobileThemeToggleBtn = document.getElementById('mobileThemeToggleBtn');
+  const body = document.body;
+  const headerLogo = document.getElementById('headerLogo');
+
+  function updateLogoForTheme(isDark) {
+    if (headerLogo) {
+      headerLogo.src = isDark ? '../assets/logo-light.svg' : '../assets/logo-dark.svg';
+    }
+  }
+
+  function updateToggleIcons(isDark) {
+    const iconClass = isDark ? 'fa-sun' : 'fa-moon';
+    
+    if (themeToggleBtn) {
+      themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+    }
+    if (mobileThemeToggleBtn) {
+      mobileThemeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i> <span>Tema ${isDark ? 'Claro' : 'Oscuro'}</span>`;
+    }
+  }
+
+  function setTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+    updateLogoForTheme(isDark);
+    updateToggleIcons(isDark);
+  }
+
+  // Eventos de clic para cambiar tema
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-mode');
+      setTheme(!isDark);
+    });
+  }
+
+  if (mobileThemeToggleBtn) {
+    mobileThemeToggleBtn.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-mode');
+      setTheme(!isDark);
+    });
+  }
+
+  // Inicialización del tema basado en localStorage o preferencias del OS
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    setTheme(true);
+  } else {
+    setTheme(false);
+  }
+
+
+  // --- 3. MENÚ MÓVIL Y OVERLAY ---
   const menuToggle = document.getElementById('menuToggle');
   const mobileOverlay = document.getElementById('mobileOverlay');
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
@@ -9,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     mobileOverlay.classList.toggle('open');
-    // Prevenir scroll en el body cuando el menú está abierto
     document.body.style.overflow = mobileOverlay.classList.contains('open') ? 'hidden' : 'auto';
   });
 
@@ -22,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 2. HEADER SCROLL Y BARRA DE PROGRESO ---
+  // --- 4. HEADER SCROLL Y BARRA DE PROGRESO ---
   const mainHeader = document.getElementById('mainHeader');
   const scrollProgress = document.getElementById('scrollProgress');
 
@@ -31,10 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
     
-    // Ancho de la barra de progreso
     scrollProgress.style.width = `${scrollPercent}%`;
 
-    // Compactar cabecera al hacer scroll
     if (scrollTop > 50) {
       mainHeader.classList.add('scrolled');
     } else {
@@ -43,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 3. NAVEGACIÓN ACTIVA SEGÚN SECCIÓN (SCROLL) ---
+  // --- 5. NAVEGACIÓN ACTIVA EN SCROLL ---
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
 
@@ -52,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120; // Compensación de cabecera
+      const sectionTop = current.offsetTop - 120;
       const sectionId = current.getAttribute('id');
       
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -69,18 +144,18 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', highlightNavigation);
 
 
-  // --- 4. ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER) ---
-  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  // --- 6. ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER) ---
+  const animateElements = document.querySelectorAll('.animate-on-scroll, .timeline-item');
 
   const scrollObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('appear');
-        observer.unobserve(entry.target); // Dejar de observar una vez que aparece
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.15,
+    threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   });
 
@@ -89,60 +164,104 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 5. PESTAÑAS DE MISIÓN, VISIÓN Y VALORES ---
+  // --- 7. PESTAÑAS CON DESLIZAMIENTO E INSTANT FEEDBACK ---
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanes = document.querySelectorAll('.tab-pane');
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetTab = btn.getAttribute('data-tab');
+      const targetPane = document.getElementById(targetTab);
       
-      // Quitar clases activas
+      // Desactivar botones y remover clases activas/show
       tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanes.forEach(p => p.classList.remove('active'));
-      
-      // Activar correspondiente
-      btn.classList.add('active');
-      document.getElementById(targetTab).classList.add('active');
-    });
-  });
-
-
-  // --- 6. EXPANDIR DETALLE DE SERVICIOS ---
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    const toggleBtn = card.querySelector('.btn-toggle-service');
-    
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = card.classList.contains('expanded');
-      
-      // Cerrar otros servicios abiertos para mantener orden
-      serviceCards.forEach(c => {
-        if (c !== card) {
-          c.classList.remove('expanded');
-          const btn = c.querySelector('.btn-toggle-service');
-          btn.innerHTML = 'Ampliar Detalles <i class="fa-solid fa-chevron-down"></i>';
-        }
+      tabPanes.forEach(p => {
+        p.classList.remove('active', 'show');
       });
-
-      if (isExpanded) {
-        card.classList.remove('expanded');
-        toggleBtn.innerHTML = 'Ampliar Detalles <i class="fa-solid fa-chevron-down"></i>';
-      } else {
-        card.classList.add('expanded');
-        toggleBtn.innerHTML = 'Colapsar Detalles <i class="fa-solid fa-chevron-up"></i>';
-      }
+      
+      // Activar botón seleccionado
+      btn.classList.add('active');
+      
+      // Activar panel
+      targetPane.classList.add('active');
+      
+      // Forzar reflow para que el navegador registre la transición
+      void targetPane.offsetHeight;
+      
+      // Agregar clase show para animar opacidad y transform
+      targetPane.classList.add('show');
     });
   });
 
 
-  // --- 7. VALIDACIÓN DE FORMULARIO DE CONTACTO ---
+  // --- 8. VENTANA MODAL (POP-UP) PARA SERVICIOS ---
+  const serviceCards = document.querySelectorAll('.service-card');
+  const serviceModal = document.getElementById('serviceModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalCtaBtn = document.getElementById('modalCtaBtn');
+
+  // Elementos de la modal
+  const modalElements = {
+    icon: document.querySelector('#modalIcon i'),
+    tag: document.getElementById('modalTag'),
+    title: document.getElementById('modalTitle'),
+    desc: document.getElementById('modalDesc'),
+    scope: document.getElementById('modalScope'),
+    benefits: document.getElementById('modalBenefits')
+  };
+
+  function openServiceModal(card) {
+    const template = card.querySelector('.modal-data');
+    if (!template) return;
+
+    const content = template.content;
+    const iconClass = card.querySelector('.service-icon i').className;
+
+    // Poblar modal
+    modalElements.icon.className = iconClass;
+    modalElements.tag.innerText = content.querySelector('.tag').innerText;
+    modalElements.title.innerText = content.querySelector('.title').innerText;
+    modalElements.desc.innerText = content.querySelector('.desc').innerText;
+    modalElements.scope.innerHTML = content.querySelector('.scope').innerHTML;
+    modalElements.benefits.innerText = content.querySelector('.benefits').innerText;
+
+    // Mostrar modal
+    serviceModal.classList.add('open');
+    serviceModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeServiceModal() {
+    serviceModal.classList.remove('open');
+    serviceModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = 'auto';
+  }
+
+  serviceCards.forEach(card => {
+    const btn = card.querySelector('.btn-toggle-service');
+    btn.addEventListener('click', () => openServiceModal(card));
+  });
+
+  modalCloseBtn.addEventListener('click', closeServiceModal);
+  modalOverlay.addEventListener('click', closeServiceModal);
+  
+  // Cerrar al hacer clic en el botón de solicitar presupuesto
+  modalCtaBtn.addEventListener('click', closeServiceModal);
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && serviceModal.classList.contains('open')) {
+      closeServiceModal();
+    }
+  });
+
+
+  // --- 9. VALIDACIÓN DE FORMULARIO DE CONTACTO ---
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   const formError = document.getElementById('formError');
 
-  // Elementos de entrada
   const inputs = {
     name: document.getElementById('name'),
     email: document.getElementById('email'),
@@ -151,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     message: document.getElementById('message')
   };
 
-  // Validaciones individuales
   function validateField(field, condition) {
     const group = field.closest('.form-group');
     if (condition) {
@@ -165,28 +283,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Comportamiento al perder el foco (blur)
   inputs.name.addEventListener('blur', () => {
     const val = inputs.name.value.trim();
-    const isOk = val.length >= 3 && !/\d/.test(val);
-    validateField(inputs.name, isOk);
+    validateField(inputs.name, val.length >= 3 && !/\d/.test(val));
   });
 
   inputs.email.addEventListener('blur', () => {
     const val = inputs.email.value.trim();
-    const isOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    validateField(inputs.email, isOk);
+    validateField(inputs.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
   });
 
   inputs.phone.addEventListener('blur', () => {
     const val = inputs.phone.value.trim();
-    // Opcional, pero si tiene algo debe tener un formato válido
     if (val === '') {
       inputs.phone.closest('.form-group').classList.remove('invalid', 'valid');
       return;
     }
-    const isOk = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(val);
-    validateField(inputs.phone, isOk);
+    validateField(inputs.phone, /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(val));
   });
 
   inputs.service.addEventListener('change', () => {
@@ -198,11 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
     validateField(inputs.message, val.length >= 15);
   });
 
-  // Envío del Formulario
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Forzar validación en todos los campos antes de enviar
     const nameVal = inputs.name.value.trim();
     const isNameOk = validateField(inputs.name, nameVal.length >= 3 && !/\d/.test(nameVal));
 
@@ -221,38 +332,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMessageOk = validateField(inputs.message, messageVal.length >= 15);
 
     if (isNameOk && isEmailOk && isPhoneOk && isServiceOk && isMessageOk) {
-      // Éxito
       formError.style.display = 'none';
       formSuccess.style.display = 'flex';
       
-      // Cambiar botón a estado cargando temporalmente
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Enviando... <i class="fa-solid fa-circle-notch fa-spin"></i>';
       
       setTimeout(() => {
-        // Limpiar formulario
         contactForm.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Enviar Consulta <i class="fa-solid fa-paper-plane"></i>';
         
-        // Quitar clases valid
         Object.values(inputs).forEach(input => {
           input.closest('.form-group').classList.remove('valid', 'invalid');
         });
         
-        // Ocultar mensaje de éxito tras unos segundos
         setTimeout(() => {
           formSuccess.style.display = 'none';
         }, 5000);
       }, 2000);
       
     } else {
-      // Error
       formSuccess.style.display = 'none';
       formError.style.display = 'flex';
       
-      // Enfocar el primer campo inválido
       const firstInvalid = contactForm.querySelector('.form-group.invalid input, .form-group.invalid textarea, .form-group.invalid select');
       if (firstInvalid) firstInvalid.focus();
     }

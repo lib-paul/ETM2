@@ -6,18 +6,30 @@
   <meta name="description" content="Propuesta B para ETCONSULTORES. Una experiencia digital interactiva tipo app con navegación por paneles deslizantes, optimizada para dispositivos móviles.">
   <title>ETCONSULTORES - Propuesta Interactiva App-Style</title>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome for icons -->
+  <!-- FontAwesome stable for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner">
+        <img src="../assets/favicon.svg" alt="Cargando...">
+      </div>
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
 
   <!-- App Wrapper -->
   <div class="app-wrapper">
@@ -25,9 +37,14 @@
     <!-- DESKTOP SIDEBAR -->
     <aside class="desktop-sidebar">
       <div class="sidebar-top">
-        <a href="#" class="sidebar-logo-link" data-target="0">
-          <img src="../assets/logo-light.svg" alt="ETCONSULTORES Logo" class="sidebar-logo">
-        </a>
+        <div class="sidebar-header-row">
+          <a href="#" class="sidebar-logo-link" data-target="0">
+            <img src="../assets/logo-light.svg" alt="Logo de ETCONSULTORES" class="sidebar-logo" id="sidebarLogo">
+          </a>
+          <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+        </div>
         <div class="sidebar-brand-tag">PROPUESTA INTERACTIVA B</div>
       </div>
       
@@ -58,8 +75,8 @@
 
       <div class="sidebar-footer">
         <div class="values-checklist">
-          <div class="value-check"><i class="fa-solid fa-square-check"></i> Precisión Técnica</div>
-          <div class="value-check"><i class="fa-solid fa-square-check"></i> Compromiso de Escala</div>
+          <div class="value-check"><span class="bullet-indicator"></span> Precisión Técnica</div>
+          <div class="value-check"><span class="bullet-indicator"></span> Compromiso de Escala</div>
         </div>
         <p>&copy; 2026 ETCONSULTORES</p>
       </div>
@@ -67,8 +84,13 @@
 
     <!-- MOBILE TOP BAR -->
     <header class="mobile-top-bar">
-      <img src="../assets/logo-light.svg" alt="ETCONSULTORES Logo" class="mobile-logo" data-target="0">
-      <div class="mobile-badge">Propuesta B</div>
+      <img src="../assets/logo-light.svg" alt="Logo de ETCONSULTORES" class="mobile-logo" data-target="0" id="mobileLogo">
+      <div class="mobile-header-right">
+        <button id="mobileThemeToggleBtn" class="mobile-theme-toggle-btn" aria-label="Cambiar tema">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <div class="mobile-badge">Propuesta B</div>
+      </div>
     </header>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR -->
@@ -106,7 +128,7 @@
               <span class="panel-tag"><i class="fa-solid fa-shield-halved"></i> Calidad e Ingeniería Civil</span>
               <h1 class="panel-title">Consultoría Técnica de Alta Complejidad</h1>
               <p class="panel-subtitle">
-                Especialistas en estudios hidrológicos, diseño estructural y dirección técnica de infraestructuras a gran escala.
+                Especialistas en estudios hidrológicos, diseño estructural y dirección técnica de infraestructuras de gran envergadura.
               </p>
               
               <!-- Metrics counter display -->
@@ -245,7 +267,7 @@
             <p class="panel-desc-sec">Servicios de ingeniería enfocados en la solidez, seguridad y optimización presupuestaria.</p>
           </div>
 
-          <!-- Services Carousel/Accordion Accordion Cards -->
+          <!-- Services Accordion Cards -->
           <div class="services-accordion-wrapper">
             <!-- Accordion 1 -->
             <div class="accordion-item active">
@@ -270,7 +292,7 @@
                   <div class="acc-benefits">
                     <h4>Beneficios de Consultoría</h4>
                     <p class="benefit-box">
-                      Seguridad frente a eventos climáticos extremos, optimización en el diseño de canales hidráulicos y cumplimiento ágil de licencias ambientales y técnicas.
+                      Seguridad frente a eventos climáticos extremos, optimización en el diseño de canales hidráulicos y cumplimiento rápido de licencias ambientales y técnicas.
                     </p>
                   </div>
                 </div>
@@ -361,7 +383,7 @@
                 
                 <div class="form-group-glass">
                   <label for="pEmail">Correo Electrónico *</label>
-                  <input type="email" id="pEmail" placeholder="jperez@empresa.com" required>
+                  <input type="email" id="pEmail" placeholder="etconsultora@sindefinir.com" required>
                   <span class="p-error">Ingrese un correo válido.</span>
                 </div>
 
@@ -402,7 +424,7 @@
                 <i class="fa-solid fa-map-location-dot"></i>
                 <div>
                   <h5>Dirección</h5>
-                  <p>Av. Madero 1020, Piso 14, Puerto Madero, CABA</p>
+                  <p>Dirección - Sin Definir</p>
                 </div>
               </div>
 
@@ -410,7 +432,7 @@
                 <i class="fa-solid fa-phone-volume"></i>
                 <div>
                   <h5>Teléfono</h5>
-                  <p>+54 11 1234-5678</p>
+                  <p>Teléfono - Sin Definir</p>
                 </div>
               </div>
 
@@ -418,7 +440,7 @@
                 <i class="fa-solid fa-envelope-open-text"></i>
                 <div>
                   <h5>Correo Electrónico</h5>
-                  <p>info@etconsultores.com.ar</p>
+                  <p>etconsultora@sindefinir.com</p>
                 </div>
               </div>
 

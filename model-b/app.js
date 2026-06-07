@@ -1,6 +1,84 @@
-// model-b/app.js - Lógica Interactiva para Modelo de Paneles Deslizantes
+// model-b/app.js - Lógica Interactiva y Temas para Modelo de Paneles Deslizantes
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- 1. PRELOADER Y CARGA INICIAL ---
+  const preloader = document.getElementById('preloader');
+  
+  window.addEventListener('load', () => {
+    if (preloader) {
+      preloader.classList.add('fade-out');
+    }
+  });
+
+  // Respaldo de seguridad para quitar preloader
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('fade-out')) {
+      preloader.classList.add('fade-out');
+    }
+  }, 1000);
+
+
+  // --- 2. GESTIÓN DE TEMA CLARO / OSCURO (LIGHT/DARK MODE) ---
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const mobileThemeToggleBtn = document.getElementById('mobileThemeToggleBtn');
+  const body = document.body;
+  const sidebarLogo = document.getElementById('sidebarLogo');
+  const mobileLogo = document.getElementById('mobileLogo');
+
+  function updateLogosForTheme(isLight) {
+    const logoSrc = isLight ? '../assets/logo-dark.svg' : '../assets/logo-light.svg';
+    if (sidebarLogo) sidebarLogo.src = logoSrc;
+    if (mobileLogo) mobileLogo.src = logoSrc;
+  }
+
+  function updateToggleIcons(isLight) {
+    const iconClass = isLight ? 'fa-moon' : 'fa-sun';
+    
+    if (themeToggleBtn) {
+      themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+    }
+    if (mobileThemeToggleBtn) {
+      mobileThemeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+    }
+  }
+
+  function setTheme(isLight) {
+    if (isLight) {
+      body.classList.add('light-theme');
+      localStorage.setItem('theme-b', 'light');
+    } else {
+      body.classList.remove('light-theme');
+      localStorage.setItem('theme-b', 'dark');
+    }
+    updateLogosForTheme(isLight);
+    updateToggleIcons(isLight);
+  }
+
+  // Eventos de clic para cambiar tema
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = body.classList.contains('light-theme');
+      setTheme(!isLight);
+    });
+  }
+
+  if (mobileThemeToggleBtn) {
+    mobileThemeToggleBtn.addEventListener('click', () => {
+      const isLight = body.classList.contains('light-theme');
+      setTheme(!isLight);
+    });
+  }
+
+  // Inicialización (Por defecto es OSCURO)
+  const savedTheme = localStorage.getItem('theme-b');
+  if (savedTheme === 'light') {
+    setTheme(true);
+  } else {
+    setTheme(false);
+  }
+
+
+  // --- 3. GESTIÓN DE NAVEGACIÓN ENTRE PANELES ---
   const panels = document.querySelectorAll('.panel-section');
   const sidebarButtons = document.querySelectorAll('.sidebar-nav-btn');
   const mobileButtons = document.querySelectorAll('.mobile-nav-btn');
@@ -9,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPanelIndex = 0;
   let isTransitioning = false;
 
-  // --- 1. GESTIÓN DE NAVEGACIÓN ENTRE PANELES ---
   function changePanel(targetIndex) {
     if (targetIndex === currentPanelIndex || isTransitioning) return;
     if (targetIndex < 0 || targetIndex >= panels.length) return;
@@ -18,27 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPanel = panels[currentPanelIndex];
     const targetPanel = panels[targetIndex];
 
-    // Detallar clases para transiciones fluidas de slide
+    // Transición de paneles
     if (targetIndex > currentPanelIndex) {
-      // Avanzar (el actual sube, el nuevo entra desde abajo)
       currentPanel.className = 'panel-section prev';
-      targetPanel.className = 'panel-section next'; // Reset posición inicial
+      targetPanel.className = 'panel-section next';
       setTimeout(() => {
         targetPanel.className = 'panel-section active';
       }, 50);
     } else {
-      // Retroceder (el actual baja, el nuevo entra desde arriba)
       currentPanel.className = 'panel-section next';
-      targetPanel.className = 'panel-section prev'; // Reset posición inicial
+      targetPanel.className = 'panel-section prev';
       setTimeout(() => {
         targetPanel.className = 'panel-section active';
       }, 50);
     }
 
-    // Actualizar botones de navegación activos
     updateNavButtons(targetIndex);
 
-    // Reiniciar scroll del panel al que ingresamos
     const scrollContainer = targetPanel.querySelector('.panel-content-scroll');
     if (scrollContainer) {
       scrollContainer.scrollTop = 0;
@@ -46,32 +119,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentPanelIndex = targetIndex;
 
-    // Disparar animación de contadores si entramos al Inicio (index 0)
     if (currentPanelIndex === 0) {
       startCounterAnimation();
     }
 
-    // Quitar flag de transición tras finalizar animación CSS
     setTimeout(() => {
       isTransitioning = false;
     }, 600);
   }
 
   function updateNavButtons(activeIndex) {
-    // Desktop Nav
     sidebarButtons.forEach(btn => {
       const target = parseInt(btn.getAttribute('data-target'));
       btn.classList.toggle('active', target === activeIndex);
     });
 
-    // Mobile Nav
     mobileButtons.forEach(btn => {
       const target = parseInt(btn.getAttribute('data-target'));
       btn.classList.toggle('active', target === activeIndex);
     });
   }
 
-  // Asignar eventos a todos los botones con [data-target]
   allNavTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -81,16 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 2. CONTADORES DE ESTADÍSTICAS ---
-  let countersAnimated = false;
-
+  // --- 4. CONTADORES DE ESTADÍSTICAS ---
   function startCounterAnimation() {
     const counterElements = document.querySelectorAll('.metric-num');
     
     counterElements.forEach(element => {
       const targetVal = parseInt(element.getAttribute('data-count'));
       let currentVal = 0;
-      const duration = 1200; // ms
+      const duration = 1200;
       const stepTime = Math.max(Math.floor(duration / targetVal), 10);
       
       element.innerText = '0';
@@ -107,13 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animación inicial en carga
+  // Animación inicial al cargar
   setTimeout(() => {
     startCounterAnimation();
-  }, 300);
+  }, 500);
 
 
-  // --- 3. ACCORDIÓN DE SERVICIOS ---
+  // --- 5. ACORDEÓN DE SERVICIOS ---
   const accordionItems = document.querySelectorAll('.accordion-item');
 
   accordionItems.forEach(item => {
@@ -122,12 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
       
-      // Cerrar todos los demás accordions
       accordionItems.forEach(acc => {
         acc.classList.remove('active');
       });
 
-      // Abrir el clickeado si estaba cerrado
       if (!isActive) {
         item.classList.add('active');
       }
@@ -135,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 4. SOPORTE DE GESTOS TÁCTILES (SWIPE HASTA EL SIGUIENTE PANEL) ---
+  // --- 6. SOPORTE DE SWIPE TÁCTIL HORIZONTAL ---
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
@@ -158,20 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
 
-    // Solo cambiar de panel si el gesto es mayormente horizontal y supera el umbral
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 80) {
       if (diffX < 0) {
-        // Swipe izquierda -> Siguiente panel
         changePanel(currentPanelIndex + 1);
       } else {
-        // Swipe derecha -> Panel anterior
         changePanel(currentPanelIndex - 1);
       }
     }
   }
 
 
-  // --- 5. VALIDACIÓN DEL FORMULARIO DE CONTACTO (GLASSMOPHIC) ---
+  // --- 7. VALIDACIÓN DEL FORMULARIO (GLASSMOPHIC) ---
   const pForm = document.getElementById('panelContactForm');
   const pSuccess = document.getElementById('pSuccess');
   const pError = document.getElementById('pError');

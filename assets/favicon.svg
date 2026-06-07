@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Brand Circle Background -->
+  <circle cx="50" cy="50" r="48" fill="#0B1D2D" />
+  
+  <!-- Centered White Monogram -->
+  <g fill="#FFFFFF" transform="translate(20, 20) scale(0.6)">
+    <!-- Barra superior -->
+    <rect x="0" y="10" width="90" height="16" rx="2" />
+    <!-- Pata izquierda (E) -->
+    <rect x="0" y="10" width="16" height="60" rx="2" />
+    <!-- Barra central (E) -->
+    <rect x="16" y="32" width="28" height="14" rx="1" />
+    <!-- Barra inferior (E) -->
+    <rect x="16" y="54" width="40" height="16" rx="2" />
+    <!-- Pata derecha (T) -->
+    <rect x="63" y="26" width="16" height="44" rx="2" />
+  </g>
+</svg>
