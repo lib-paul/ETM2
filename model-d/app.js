@@ -1,4 +1,4 @@
-// model-b/app.js - Lógica Interactiva y Temas (Modelo de Paneles Deslizantes Rediseñado)
+// model-d/app.js - Lógica Interactiva y Temas (Modelo de Paneles Deslizantes Rediseñado)
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. PRELOADER Y CARGA INICIAL ---
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function setTheme(isLight) {
     if (isLight) {
       body.classList.add('light-theme');
-      localStorage.setItem('theme-b', 'light');
+      localStorage.setItem('theme-d', 'light');
     } else {
       body.classList.remove('light-theme');
-      localStorage.setItem('theme-b', 'dark');
+      localStorage.setItem('theme-d', 'dark');
     }
     updateLogosForTheme(isLight);
     updateToggleIcons(isLight);
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Inicialización (Por defecto es OSCURO)
-  const savedTheme = localStorage.getItem('theme-b');
+  const savedTheme = localStorage.getItem('theme-d');
   if (savedTheme === 'light') {
     setTheme(true);
   } else {

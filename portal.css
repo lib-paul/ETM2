@@ -231,7 +231,8 @@ body {
   transition: background-color 0.3s;
 }
 
-.model-card.card-b::before {
+.model-card.card-b::before,
+.model-card.card-d::before {
   background-color: var(--color-light-blue);
 }
 
@@ -262,7 +263,8 @@ body {
   color: var(--color-light-blue);
 }
 
-.card-a .card-icon {
+.card-a .card-icon,
+.card-c .card-icon {
   color: var(--color-medium);
 }
 
@@ -302,7 +304,8 @@ body {
   color: var(--color-light-blue);
 }
 
-.card-a .card-features li i {
+.card-a .card-features li i,
+.card-c .card-features li i {
   color: var(--color-medium);
 }
 
@@ -331,7 +334,8 @@ body {
   background: rgba(15, 29, 45, 0.85);
 }
 
-.card-a:hover {
+.card-a:hover,
+.card-c:hover {
   border-color: rgba(15, 76, 129, 0.5);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(15, 76, 129, 0.15);
 }
@@ -343,7 +347,8 @@ body {
   box-shadow: 0 4px 15px rgba(34, 181, 229, 0.4);
 }
 
-.card-a:hover .btn-enter {
+.card-a:hover .btn-enter,
+.card-c:hover .btn-enter {
   background: var(--color-medium);
   border-color: var(--color-medium);
   color: var(--color-white);

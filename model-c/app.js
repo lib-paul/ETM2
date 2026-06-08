@@ -1,4 +1,4 @@
-// model-a/app.js - Lógica Interactiva y Temas para Modelo Scroll Continuo
+// model-c/app.js - Lógica Interactiva y Temas para Modelo Scroll Continuo
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. PRELOADER Y CARGA INICIAL ---
